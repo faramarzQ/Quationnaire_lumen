@@ -11,6 +11,11 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+//$router->get('/', function () use ($router) {
+//    return $router->app->version();
+//});
+$router->group(['prefix' => 'admin'], function () use ($router) {
+    $router->get('/', function ()    {
+        return view('admin.index');
+    });
 });
