@@ -32,12 +32,11 @@ class UserController extends Controller
         ]);
 
         $user = User::where('type', 'admin')->where('mobile', $request->input('mobile'))->first();
-//        if(Hash::check($request->input('password'), $user->password)){
-        if($request->input('password') == $user->password){
+       if(Hash::check($request->input('password'), $user->password)){
+        // if( $request->input('password') == $user->password ){
             $session = $request->session();
 	        $session->put('user_id', $user->id);
             
-            // show admin page
             return redirect()->route('dashboard')->session()->flash('success', 'ورود با موفقیت انجام شد');
         }
         //refresh login page with alert(wrong password or username)
