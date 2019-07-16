@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppuserTable extends Migration
+class CreateUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateAppuserTable extends Migration
      */
     public function up()
     {
-        Schema::create('appuser', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type', ['app_user', 'questioner']);
+            $table->enum('type', ['admin', 'questioner']);
             $table->string('name');
             $table->bigInteger('mobile');
             $table->string('password');
@@ -31,6 +31,6 @@ class CreateAppuserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appuser');
+        Schema::dropIfExists('users');
     }
 }

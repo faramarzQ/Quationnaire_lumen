@@ -22,7 +22,8 @@
         </div>
     </div>
     <div class="auth__body">
-        <form class="auth__form" autocomplete="off">
+        <form class="auth__form" autocomplete="off" method="POST" action="{{ route('') }}">
+            {{ csrf_field() }}
             <div class="auth__form_body">
                 <h3 class="auth__form_title">Sign in</h3>
                 <div>
