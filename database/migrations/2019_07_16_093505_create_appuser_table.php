@@ -17,7 +17,7 @@ class CreateAppuserTable extends Migration
             $table->bigIncrements('id');
             $table->enum('type', ['app_user', 'questioner']);
             $table->string('name');
-            $table->integer('mobile');
+            $table->bigInteger('mobile');
             $table->string('password');
             $table->string('api_token');
             $table->timestamps();
