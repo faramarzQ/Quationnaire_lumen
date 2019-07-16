@@ -19,12 +19,12 @@
 /************
 *   Web
 ************/
-$router->group(['prefix' => 'admin'], function () use ($router) {
+$router->get('login', ['as' => 'login', function ()    {
+    return view('auth.login');
+}]);
+$router->group(['prefix' => 'admin', 'middleware' => 'auth_web'], function () use ($router) {
     $router->get('/', ['as' => 'dashboard', function ()    {
         return view('admin.index');
-    }]);
-    $router->get('login', ['as' => 'login', function ()    {
-        return view('auth.login');
     }]);
     $router->post('login', ['as' => 'check_login', 'uses' => 'Admin\UserController@login']);
 });

@@ -17,6 +17,7 @@ class AuthenticateWeb
     public function handle($request, Closure $next)
     {
         $session = $request->session()->get('user_id');
+//        $session = $request->session()->has('user_id');
 
         $user = User::find($session);
 
