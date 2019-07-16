@@ -1,3 +1,6 @@
+{{--@php(if (!$request->session()->has('user_id')) {--}}
+    {{--return redirect()->route('login');--}}
+{{--})--}}
 @extends('layouts.app')
 @section('content-title', 'داشبورد')
 @section('content')

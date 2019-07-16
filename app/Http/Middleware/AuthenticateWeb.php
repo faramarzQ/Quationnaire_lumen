@@ -26,7 +26,7 @@ class AuthenticateWeb
             return $next($request);
 
         } else {
-            return 'Unauthorized';
+            return redirect()->route('login');
         }
     }
 }

@@ -22,24 +22,25 @@
         </div>
     </div>
     <div class="auth__body">
-        <form class="auth__form" autocomplete="off" method="POST" action="{{ route('') }}">
-            {{ csrf_field() }}
+        <form class="auth__form" autocomplete="off" method="POST" action="{{ route('check_login') }}">
+             {{--csrf token --}}
+            <input type="hidden" name="_token" value="{{ app('session')->token() }}">
             <div class="auth__form_body">
-                <h3 class="auth__form_title">Sign in</h3>
+                <h3 class="auth__form_title">ورود به سایت</h3>
                 <div>
                     <div class="form-group">
-                        <label class="text-uppercase small">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter email">
+                        <label class="text-uppercase small">شماره کاربری</label>
+                        <input type="text" name="mobile" class="form-control" placeholder="شماره کاربری خود را وارد نمایید">
                     </div>
                     <div class="form-group">
-                        <label class="text-uppercase small">Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <label class="text-uppercase small">کلمه عبور</label>
+                        <input type="password" name="password" class="form-control" placeholder="کلمه عبور خود را وارد کنید">
                     </div>
                 </div>
             </div>
             <div class="auth__form_actions">
                 <button class="btn btn-primary btn-lg btn-block">
-                    LOGIN
+                    ورود
                 </button>
                 {{--<div class="mt-2">
                     <a href="#" class="small text-uppercase">

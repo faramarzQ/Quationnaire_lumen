@@ -14,22 +14,23 @@
 //$router->get('/', function () use ($router) {
 //    return $router->app->version();
 //});
-$router->group(['prefix' => 'admin'], function () use ($router) {
-    $router->get('/', function ()    {
-        return view('admin.index');
-    });
-    $router->get('login', function ()    {
-        return view('auth.login');
-    });
-});
+
 
 /************
 *   Web
 ************/
-$router->post('login', 'Admin\UserController@login');
+$router->group(['prefix' => 'admin'], function () use ($router) {
+    $router->get('/', ['as' => 'dashboard', function ()    {
+        return view('admin.index');
+    }]);
+    $router->get('login', ['as' => 'login', function ()    {
+        return view('auth.login');
+    }]);
+    $router->post('login', ['as' => 'check_login', 'uses' => 'Admin\UserController@login']);
+});
 
 $router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use ($router) {
-    $router->get('logout', 'Admin\UserController@logout');
+    $router->get('logout', ['as' => 'logout', 'Admin\UserController@logout']);
     $router->get('test', 'Admin\UserController@test');
 });
 
