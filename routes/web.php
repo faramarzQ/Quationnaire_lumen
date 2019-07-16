@@ -18,4 +18,7 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
     $router->get('/', function ()    {
         return view('admin.index');
     });
+    $router->get('login', function ()    {
+        return view('auth.login');
+    });
 });
