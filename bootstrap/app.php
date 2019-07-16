@@ -21,9 +21,12 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
- $app->withFacades();
+$app->withFacades();
 
-// $app->withEloquent();
+$app->withEloquent();
+
+$app->configure('session');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +49,10 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->bind(Illuminate\Session\SessionManager::class, function ($app) {    
+    return $app->make('session');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -61,9 +68,14 @@ $app->singleton(
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'auth_api' => App\Http\Middleware\Authenticate::class,
+    'auth_web' => App\Http\Middleware\AuthenticateWeb::class,
+]);
+
+$app->middleware([
+    'Illuminate\Session\Middleware\StartSession'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -76,9 +88,10 @@ $app->singleton(
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(Illuminate\Session\SessionServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

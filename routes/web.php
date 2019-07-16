@@ -22,3 +22,26 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         return view('auth.login');
     });
 });
+
+/************
+*   Web
+************/
+$router->post('login', 'Admin\UserController@login');
+
+$router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use ($router) {
+    $router->get('logout', 'Admin\UserController@logout');
+    $router->get('test', 'Admin\UserController@test');
+});
+
+/************
+*   API
+************/
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('entrance_verification', 'UserController@verifyEntrance');
+    $router->post('login', 'API\UserController@login');
+    
+    $router->group(['middleware' => 'auth_api'], function () use ($router) {
+        $router->post('test', 'API\QuestionnaireController@store');
+
+    });
+});
