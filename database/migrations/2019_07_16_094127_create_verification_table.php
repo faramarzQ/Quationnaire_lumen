@@ -15,7 +15,7 @@ class CreateVerificationTable extends Migration
     {
         Schema::create('verification', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('verify_code');
+            $table->string('verify_code', 50);
         });
     }
 

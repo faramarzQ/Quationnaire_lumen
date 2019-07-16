@@ -14,15 +14,28 @@ class UserController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth_web');
-    // }
+    public function __construct() {}
+    
+    /**
+     * show login form
+     *
+     * @param Request
+     * @return view
+     */
+    public function showLoginForm(Request $request)
+    {
+        if($request->session()->has('user_id')) {
+            return redirect()->route('dashboard');
+        }
+        
+        return view('auth.login');
+    }
    
     /**
      * Login user
      *
-     * @return void
+     * @param Request
+     * @return view
      */
     public function login(Request $request)
     {
@@ -37,7 +50,7 @@ class UserController extends Controller
             $session = $request->session();
 	        $session->put('user_id', $user->id);
             
-            return redirect()->route('dashboard')->session()->flash('success', 'ورود با موفقیت انجام شد');
+            return redirect()->route('dashboard');
         }
         //refresh login page with alert(wrong password or username)
         else{
