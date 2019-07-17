@@ -42,9 +42,14 @@ $router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use
     /**
      * questioners
      */
-    $router->get('questioners', ['as' => 'questioners.index', 'uses' => 'Admin\QuestionnaireController@index']);
-    $router->get('questioners/edit/{id}', ['as' => 'questioners.edit', 'uses' => 'Admin\QuestionnaireController@edit']);
-    $router->get('questioners/delete/{id}', ['as' => 'questioners.delete', 'uses' => 'Admin\QuestionnaireController@delete']);
+    $router->get('questioners', ['as' => 'questioners.index', 'uses' => 'Admin\QuestionerController@index']);
+    $router->get('questioner/{id}', ['as' => 'questioners.show', 'uses' => 'Admin\QuestionerController@show']);
+    $router->get('questioners/create', ['as' => 'questioners.create', 'uses' => 'Admin\QuestionerController@create']);
+    $router->get('questioners/store', ['as' => 'questioners.store', 'uses' => 'Admin\QuestionerController@store']);
+    $router->get('questioners/edit/{id}', ['as' => 'questioners.edit', 'uses' => 'Admin\QuestionerController@edit']);
+    $router->post('questioners/update', ['as' => 'questioners.update', 'uses' => 'Admin\QuestionerController@update']);
+    $router->get('questioners/delete/{id}', ['as' => 'questioners.delete', 'uses' => 'Admin\QuestionerController@delete']);
+    $router->get('questioners/check/{id}', ['as' => 'questioners.check', 'uses' => 'Admin\QuestionerController@check']);
 
 });
 

@@ -38,7 +38,7 @@ class QuestionnaireController extends Controller
     {
         $user = User::find($id);
 
-        return view('admin.questioners.index', compact('user'));
+        return view('admin.questioners.show', compact('user'));
     }
     
     /**
@@ -107,9 +107,31 @@ class QuestionnaireController extends Controller
      */
     public function delete($id)
     {
-        User::find($id)->delete();
+        $user = User::find($id);
+
+        $user->deleted_at = date("Y-m-d h:i:s");
+        $usr->save();
 
         return view('admin.questioners');
+    }
+
+    /**
+     * activate or inactivate questioner
+     *
+     * @return view
+     */
+    public function check($id)
+    {
+        $user = User::find($id);
+
+        if($user->status == 'active') {
+            $user->deleted_at = 'inactive';
+        } else {
+            $user->status = 'active';
+        }
+        $usr->save();
+
+        return redirect()->back();
     }
     
 }
