@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example1" class="table table-bordered table-striped text-center">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -26,12 +26,20 @@
                             @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
+                                <td>
+                                    <a href="{{ route('questioners.show', ['id' => $user->id]) }}">
+                                        {{ $user->name }}
+                                    </a>
+                                </td>
                                 <td>{{ $user->mobile }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('questioners.edit', ['id' => $user->id]) }}">ویرایش</a>
-                                    <a href="{{ route('questioners.delete', ['id' => $user->id]) }}">حذف</a>
+                                    <a href="{{ route('questioners.edit', ['id' => $user->id]) }}">
+                                        <i class="fa fa-pencil pl-3"></i>
+                                    </a>
+                                    <a href="{{ route('questioners.delete', ['id' => $user->id]) }}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
