@@ -22,21 +22,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link active">
+                                <a href="{{ route('questioners.index') }}" class="nav-link active">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>داشبورد اول</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>داشبورد دوم</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>داشبورد سوم</p>
+                                    <p>پرسشگر</p>
                                 </a>
                             </li>
                         </ul>
@@ -45,51 +33,10 @@
                         <a href="pages/widgets.html" class="nav-link">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
-                                ویجت‌ها
+                                نمودار ها
                                 <span class="right badge badge-danger">جدید</span>
                             </p>
                         </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-book"></i>
-                            <p>
-                                صفحات
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/examples/invoice.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>سفارشات</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/profile.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>پروفایل</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/login.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>صفحه ورود</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/register.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>صفحه عضویت</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/lockscreen.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>قفل صفحه</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </nav>

@@ -30,8 +30,8 @@
                                 <td>{{ $user->mobile }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('questionnaire.edit', ['id' => $user->id]) }}">ویرایش</a>
-                                    <a href="{{ route('questionnaire.delete', ['id' => $user->id]) }}">حذف</a>
+                                    <a href="{{ route('questioners.edit', ['id' => $user->id]) }}">ویرایش</a>
+                                    <a href="{{ route('questioners.delete', ['id' => $user->id]) }}">حذف</a>
                                 </td>
                             </tr>
                             @endforeach

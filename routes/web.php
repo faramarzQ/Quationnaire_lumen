@@ -40,11 +40,11 @@ $router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use
     $router->get('logout', ['as' => 'logout', 'uses' => 'Admin\UserController@logout']);
 
     /**
-     * questionnaires
+     * questioners
      */
-    $router->get('questionnaires', ['as' => 'questionnaire.index', 'uses' => 'Admin\QuestionnaireController@index']);
-    $router->get('questionnaires/edit/{id}', ['as' => 'questionnaire.edit', 'uses' => 'Admin\QuestionnaireController@edit']);
-    $router->get('questionnaires/delete/{id}', ['as' => 'questionnaire.delete', 'uses' => 'Admin\QuestionnaireController@delete']);
+    $router->get('questioners', ['as' => 'questioners.index', 'uses' => 'Admin\QuestionnaireController@index']);
+    $router->get('questioners/edit/{id}', ['as' => 'questioners.edit', 'uses' => 'Admin\QuestionnaireController@edit']);
+    $router->get('questioners/delete/{id}', ['as' => 'questioners.delete', 'uses' => 'Admin\QuestionnaireController@delete']);
 
 });
 

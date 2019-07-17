@@ -24,8 +24,8 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>CopyLeft &copy; 2019 <a href="http://github.com/hesammousavi/">شرکت ایده آگرین مکان یاب</a>.</strong>
+    <footer class="main-footer pull-left">
+        <strong> &copy; 2019 <a href="http://snaagrin.ir">شرکت ایده آگرین مکان یاب</a></strong>
     </footer>
 
     <!-- Control Sidebar -->
