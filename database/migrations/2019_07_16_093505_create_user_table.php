@@ -16,10 +16,12 @@ class CreateUserTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('type', ['admin', 'questioner']);
+            $table->enum('status', ['active', 'inactive']);
             $table->string('name', 30);  //30
             $table->string('mobile', 11);  //11
             $table->string('password', 50); //50
-            $table->string('api_token',256); //256
+            $table->string('api_token', 256); //256
+            $table->timestamp('deleted_at');    
             $table->timestamps();
         });
     }
