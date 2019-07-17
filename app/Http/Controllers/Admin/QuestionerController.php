@@ -58,6 +58,7 @@ class QuestionerController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->get('mobile'));
         User::create([
             'name' => $request->get('name'),
             'password' => Hash::make($request->get('password')),
@@ -65,7 +66,7 @@ class QuestionerController extends Controller
             'type' => $request->get('questionnare'),
         ]);
 
-        return view('admin.questioners');
+        return redirect()->route('questioners.index');
     }
 
     /**
