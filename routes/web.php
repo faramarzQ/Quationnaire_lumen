@@ -21,11 +21,14 @@
 ************/
 $router->get('login', ['as' => 'login', 'uses' => 'Admin\UserController@showLoginForm']);
 
+$router->post('login', ['as' => 'check_login', 'uses' => 'Admin\UserController@login']);
+
 $router->group(['prefix' => 'admin', 'middleware' => 'auth_web'], function () use ($router) {
+
     $router->get('/', ['as' => 'dashboard', function ()    {
         return view('admin.index');
     }]);
-    $router->post('login', ['as' => 'check_login', 'uses' => 'Admin\UserController@login']);
+    
 });
 
 $router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use ($router) {
@@ -34,8 +37,15 @@ $router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use
         return view('admin.index');
     }]);
 
-    $router->get('logout', ['as' => 'logout', 'Admin\UserController@logout']);
-    $router->get('test', 'Admin\UserController@test');
+    $router->get('logout', ['as' => 'logout', 'uses' => 'Admin\UserController@logout']);
+
+    /**
+     * questionnaires
+     */
+    $router->get('questionnaires', ['as' => 'questionnaire.index', 'uses' => 'Admin\QuestionnaireController@index']);
+    $router->get('questionnaires/edit/{id}', ['as' => 'questionnaire.edit', 'uses' => 'Admin\QuestionnaireController@edit']);
+    $router->get('questionnaires/delete/{id}', ['as' => 'questionnaire.delete', 'uses' => 'Admin\QuestionnaireController@delete']);
+
 });
 
 /************

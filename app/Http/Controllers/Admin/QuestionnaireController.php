@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class QuestionnaireController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.questionnaire.index', compact('users'));
     }
     
     /**
@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('admin.users.index', compact('user'));
+        return view('admin.questionnaire.index', compact('user'));
     }
     
     /**
@@ -48,7 +48,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.questionnaire.create');
     }
     
     /**
@@ -65,7 +65,7 @@ class UserController extends Controller
             'type' => $request->get('questionnare'),
         ]);
 
-        return view('admin.users');
+        return view('admin.questionnaire');
     }
 
     /**
@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('admin.users.edit');
+        return view('admin.questionnaire.edit');
     }
     
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
             //fail session
         }
 
-        return view('admin.users');
+        return view('admin.questionnaire');
     }
 
     /**
@@ -109,7 +109,7 @@ class UserController extends Controller
     {
         User::find($id)->delete();
 
-        return view('admin.users');
+        return view('admin.questionnaire');
     }
     
 }
