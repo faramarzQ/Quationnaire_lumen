@@ -22,15 +22,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link active">
+                                <a href="{{ route('questioners.index') }}" class="nav-link active">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>داشبورد اول</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>داشبورد دوم</p>
+                                    <p>پرسشگر</p>
                                 </a>
                             </li>
                             <li class="nav-item">

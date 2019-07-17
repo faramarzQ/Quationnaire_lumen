@@ -25,7 +25,7 @@ class QuestionnaireController extends Controller
     {
         $users = User::all();
 
-        return view('admin.questionnaire.index', compact('users'));
+        return view('admin.questioners.index', compact('users'));
     }
     
     /**
@@ -38,7 +38,7 @@ class QuestionnaireController extends Controller
     {
         $user = User::find($id);
 
-        return view('admin.questionnaire.index', compact('user'));
+        return view('admin.questioners.index', compact('user'));
     }
     
     /**
@@ -48,7 +48,7 @@ class QuestionnaireController extends Controller
      */
     public function create()
     {
-        return view('admin.questionnaire.create');
+        return view('admin.questioners.create');
     }
     
     /**
@@ -65,7 +65,7 @@ class QuestionnaireController extends Controller
             'type' => $request->get('questionnare'),
         ]);
 
-        return view('admin.questionnaire');
+        return view('admin.questioners');
     }
 
     /**
@@ -75,7 +75,7 @@ class QuestionnaireController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('admin.questionnaire.edit');
+        return view('admin.questioners.edit');
     }
     
     /**
@@ -97,7 +97,7 @@ class QuestionnaireController extends Controller
             //fail session
         }
 
-        return view('admin.questionnaire');
+        return view('admin.questioners');
     }
 
     /**
@@ -109,7 +109,7 @@ class QuestionnaireController extends Controller
     {
         User::find($id)->delete();
 
-        return view('admin.questionnaire');
+        return view('admin.questioners');
     }
     
 }
