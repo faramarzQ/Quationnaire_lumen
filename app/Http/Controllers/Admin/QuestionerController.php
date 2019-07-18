@@ -23,7 +23,8 @@ class QuestionerController extends Controller
      */
     public function index()
     {
-        $users = User::all()->where('deleted_at', '=', null);;
+        $users = User::all()->where('deleted_at', '=', 0);
+
         return view('admin.questioners.index', compact('users'));
     }
     
@@ -62,12 +63,15 @@ class QuestionerController extends Controller
             'mobile'   => 'required|numeric',
             'password' => 'required|string'
         ]);
+
         User::create([
             'name' => $request->get('name'),
             'password' => Hash::make($request->get('password')),
             'mobile' => $request->get('mobile'),
             'type' => $request->get('type'),
+            'status' => 'active'
         ]);
+
         $_SESSION['success'] = 'کاربر با موفقیت ایجاد شد';
         return redirect()->route('questioners.index');
     }
@@ -80,6 +84,7 @@ class QuestionerController extends Controller
     public function edit($id)
     {
         $questioner = User::find($id);
+        
         return view('admin.questioners.edit', compact('questioner'));
     }
     
@@ -95,6 +100,7 @@ class QuestionerController extends Controller
             'mobile'   => 'required|numeric',
             'password' => 'required|string'
         ]);
+
         $input = [
             'name'     => $request->get('name'),
             'password' => Hash::make($request->get('password')),
@@ -115,7 +121,6 @@ class QuestionerController extends Controller
             $_SESSION['fail'] = 'مشکلی پیش آمده';
             return redirect()->route('questioners.edit', ['id' => $id]);
         }
-//        return redirect()->route('questioners.index');
     }
 
     /**
