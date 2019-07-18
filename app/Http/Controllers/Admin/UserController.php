@@ -46,11 +46,11 @@ class UserController extends Controller
 
         $user = User::where('type', 'admin')->where('mobile', $request->input('mobile'))->first();
         
-        if(!$user) {
+        if(!$user && $user->status == 'inactive') {
             $_SESSION['fail'] = 'شماره کاربری یا رمز عبور اشتباه است';
             return redirect()->route('login');
         }
-        
+
         if(Hash::check($request->input('password'), $user->password)) {
         // if( $request->input('password') == $user->password && $user->status == 'active'){
             $session = $request->session();
