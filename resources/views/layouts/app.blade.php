@@ -79,7 +79,9 @@
 <script src="{{url()}}/assets/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{url()}}/assets/js/pages/dashboard.js"></script>
-<script src="{{url()}}/assets/js/pages/dashboard3.js"></script>
+
+@yield('script')
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{url()}}/assets/js/demo.js"></script>
 </body>

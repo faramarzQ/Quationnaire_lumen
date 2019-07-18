@@ -152,5 +152,6 @@ class QuestionerController extends Controller
         $_SESSION['success'] = 'وضعیت کاربر با موفقیت تغییر کرد';
         return redirect()->route('questioners.index');
     }
+
     
 }
