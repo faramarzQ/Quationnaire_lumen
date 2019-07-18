@@ -17,11 +17,19 @@ class CreateUserTable extends Migration
             $table->bigIncrements('id');
             $table->enum('type', ['admin', 'questioner'])->nullable(false);
             $table->enum('status', ['active', 'inactive']);
+<<<<<<< HEAD
             $table->string('name', 30)->nullable(false);  //30
             $table->string('mobile', 11)->nullable(false);  //11
             $table->string('password', 50)->nullable(false); //50
             $table->string('api_token', 256); //256
             $table->dateTime('deleted_at');
+=======
+            $table->string('name', 30);  //30
+            $table->string('mobile', 11);  //11
+            $table->string('password', 256); //50
+            $table->string('api_token', 512); //256
+            $table->timestamp('deleted_at');    
+>>>>>>> parviz
             $table->timestamps();
         });
     }

@@ -67,7 +67,7 @@ class QuestionerController extends Controller
             'name' => $request->get('name'),
             'password' => Hash::make($request->get('password')),
             'mobile' => $request->get('mobile'),
-            'type' => $request->get('questionnare'),
+            'type' => $request->get('type'),
         ]);
         $_SESSION['success'] = 'کاربر با موفقیت ایجاد شد';
         return redirect()->route('questioners.index');
