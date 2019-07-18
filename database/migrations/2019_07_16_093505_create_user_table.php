@@ -15,13 +15,13 @@ class CreateUserTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type', ['admin', 'questioner']);
+            $table->enum('type', ['admin', 'questioner'])->nullable(false);
             $table->enum('status', ['active', 'inactive']);
-            $table->string('name', 30);  //30
-            $table->string('mobile', 11);  //11
-            $table->string('password', 50); //50
+            $table->string('name', 30)->nullable(false);  //30
+            $table->string('mobile', 11)->nullable(false);  //11
+            $table->string('password', 50)->nullable(false); //50
             $table->string('api_token', 256); //256
-            $table->timestamp('deleted_at');    
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }
