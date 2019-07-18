@@ -144,7 +144,8 @@ class QuestionerController extends Controller
         $user = User::find($id);
 
         if($user->status == 'active') {
-            $user->deleted_at = 'inactive';
+            $user->deleted_at = date('Y-m-d H:i:s');
+            $user->status = 'inactive';
         } else {
             $user->status = 'active';
         }
