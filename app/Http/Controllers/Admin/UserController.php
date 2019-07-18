@@ -45,15 +45,19 @@ class UserController extends Controller
         ]);
 
         $user = User::where('type', 'admin')->where('mobile', $request->input('mobile'))->first();
-//      if(Hash::check($request->input('password'), $user->password)){
-        if( $request->input('password') == $user->password && $user->status == 'active'){
+        
+        if(!$user) {
+            $_SESSION['fail'] = 'شماره کاربری یا رمز عبور اشتباه است';
+            return redirect()->route('login');
+        }
+        
+        if(Hash::check($request->input('password'), $user->password)) {
+        // if( $request->input('password') == $user->password && $user->status == 'active'){
             $session = $request->session();
             $session->put('user_id', $user->id);
             $_SESSION['success'] = 'ورود با موفقیت انجام شد';
             return redirect()->route('dashboard');
-        }
-        //refresh login page with alert(wrong password or username)
-        else{
+        } else {
             $_SESSION['fail'] = 'شماره کاربری یا رمز عبور اشتباه است';
             return redirect()->route('login');
         }
