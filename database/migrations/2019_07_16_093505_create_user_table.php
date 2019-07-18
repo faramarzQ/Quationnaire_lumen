@@ -19,8 +19,8 @@ class CreateUserTable extends Migration
             $table->enum('status', ['active', 'inactive']);
             $table->string('name', 30);  //30
             $table->string('mobile', 11);  //11
-            $table->string('password', 50); //50
-            $table->string('api_token', 256); //256
+            $table->string('password', 256); //50
+            $table->string('api_token', 512); //256
             $table->timestamp('deleted_at');    
             $table->timestamps();
         });
