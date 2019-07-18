@@ -23,8 +23,7 @@ class QuestionerController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
+        $users = User::all()->where('deleted_at', '=', null);;
         return view('admin.questioners.index', compact('users'));
     }
     
@@ -144,10 +143,8 @@ class QuestionerController extends Controller
         $user = User::find($id);
 
         if($user->status == 'active') {
-            $user->deleted_at = date('Y-m-d H:i:s');
             $user->status = 'inactive';
         } elseif($user->status == 'inactive') {
-            $user->deleted_at = null;
             $user->status = 'active';
         }
         $user->save();
