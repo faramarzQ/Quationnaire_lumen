@@ -1,5 +1,6 @@
 <?php
-
+// session doesnt work in views so we start it here to access session values
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Create The Application

@@ -1,9 +1,11 @@
 @include('partial.header')
 @include('partial.sidebar')
     <div class="content-wrapper">
+
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
+                @include('partial.flash')
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark">
@@ -18,6 +20,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+
                 @yield('content')
             </div><!-- /.container-fluid -->
         </section>

@@ -40,6 +40,9 @@
                                     <a href="{{ route('questioners.delete', ['id' => $user->id]) }}">
                                         <i class="fa fa-trash"></i>
                                     </a>
+                                    <a href="{{ route('questioners.check', ['id' => $user->id]) }}">
+                                        <i class="fa fa-{{ $user->status == active ? 'check' : 'times'}}"></i>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

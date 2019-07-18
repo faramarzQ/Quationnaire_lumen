@@ -47,7 +47,7 @@ $router->group(['prefix' => 'auth', 'middleware' => 'auth_web'], function () use
     $router->get('questioners/create', ['as' => 'questioners.create', 'uses' => 'Admin\QuestionerController@create']);
     $router->post('questioners/store', ['as' => 'questioners.store', 'uses' => 'Admin\QuestionerController@store']);
     $router->get('questioners/edit/{id}', ['as' => 'questioners.edit', 'uses' => 'Admin\QuestionerController@edit']);
-    $router->post('questioners/update', ['as' => 'questioners.update', 'uses' => 'Admin\QuestionerController@update']);
+    $router->post('questioners/update/{id}', ['as' => 'questioners.update', 'uses' => 'Admin\QuestionerController@update']);
     $router->get('questioners/delete/{id}', ['as' => 'questioners.delete', 'uses' => 'Admin\QuestionerController@delete']);
     $router->get('questioners/check/{id}', ['as' => 'questioners.check', 'uses' => 'Admin\QuestionerController@check']);
 
