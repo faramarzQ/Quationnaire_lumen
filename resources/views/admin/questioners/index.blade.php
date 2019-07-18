@@ -35,13 +35,13 @@
                                 <td>{{ $user->created_at }}</td>
                                 <td>
                                     <a href="{{ route('questioners.edit', ['id' => $user->id]) }}">
-                                        <i class="fa fa-pencil pl-3"></i>
+                                        <i class="fa fa-pencil pl-4"></i>
                                     </a>
                                     <a href="{{ route('questioners.delete', ['id' => $user->id]) }}">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="fa fa-trash pl-4"></i>
                                     </a>
                                     <a href="{{ route('questioners.check', ['id' => $user->id]) }}">
-                                        <i class="fa fa-{{ $user->status == active ? 'check' : 'times'}}"></i>
+                                        <i class="fa fa-{{ $user->status == 'active' ? 'check' : 'times'}}"></i>
                                     </a>
                                 </td>
                             </tr>
