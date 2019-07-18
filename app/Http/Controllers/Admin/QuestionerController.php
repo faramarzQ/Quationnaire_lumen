@@ -146,13 +146,14 @@ class QuestionerController extends Controller
         if($user->status == 'active') {
             $user->deleted_at = date('Y-m-d H:i:s');
             $user->status = 'inactive';
-        } else {
+        } elseif($user->status == 'inactive') {
+            $user->deleted_at = null;
             $user->status = 'active';
         }
         $user->save();
 
         $_SESSION['success'] = 'وضعیت کاربر با موفقیت تغییر کرد';
-        return redirect()->back();
+        return redirect()->route('questioners.index');
     }
     
 }
